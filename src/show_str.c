@@ -1,16 +1,15 @@
-#include <stdio.h>
 #include <sqlite3.h>
+#include <stdio.h>
 
+int callback(void *, int, char **, char **);
 
-int callback(void*, int, char**, char**);
-
-int main(void){
+int main(void) {
     sqlite3 *db;
     char *err_msg = 0;
 
     sqlite3_open("../data-samples/task007.db", &db);
 
-    char *sql = "SELECT * FROM Students";
+    char *sql = "SELECT * FROM Students WHERE id=7";
 
     sqlite3_exec(db, sql, callback, 0, &err_msg);
 
@@ -19,12 +18,14 @@ int main(void){
     return 0;
 }
 
-int callback(void *notUsed, int colCount, char **columns, char **colNames)
-{
-    for (int i = 0; i < colCount; i++)
-    {
-        printf("%s = %s\n", colNames[i], columns[i] ? columns[i] : "NULL");
+int callback(void *notUsed, int colCount, char **columns, char **colNames) {
+    for (int i = 0; i < colCount; i++) {
+        printf("%s", columns[i]);
+
+        if (i < colCount - 1) {
+            printf(" ");
+        }
     }
-    printf("\n");
+
     return 0;
 }
