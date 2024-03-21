@@ -2,7 +2,7 @@ CC=gcc
 FLAGS=-std=c11 -Wall -Werror -Wextra
 
 show_str: 
-	$(CC) $(FLAGS) show_str.c -o ../bin/show_str -l sqlite3
+	$(CC) $(FLAGS) show_str.c -Wno-unused-parameter -o ../bin/show_str -l sqlite3
 
 set-format:
 	clang-format -style='{BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 110}' -i *.c
