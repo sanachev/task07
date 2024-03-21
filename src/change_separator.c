@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 int main(void) {
-    int step;
     int count = 1;
     char* data;
     char separator[2];
@@ -10,7 +9,7 @@ int main(void) {
 
     // читаем строку
     while (1) {
-        step = getchar();
+        int step = getchar();
         if (step == 10) {
             break;
         } else {
