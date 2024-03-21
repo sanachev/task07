@@ -6,6 +6,9 @@ show_str:
 
 change_separator:
 	$(CC) $(FLAGS) change_separator.c -o ../bin/change_separator
+
+binary_div:
+	$(CC) $(FLAGS) binary_div.c -o ../bin/binary_div
  
 
 set-format:
