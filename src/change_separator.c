@@ -15,7 +15,12 @@ int main(void) {
         } else {
             count++;
             data = (char*)realloc(data, sizeof(char) * count);
-            data[count - 2] = step;
+            if (data) {
+                data[count - 2] = step;
+            } else {
+                free(data);
+                printf("Закончилась свободная память");
+            }
         }
     }
 
