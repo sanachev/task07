@@ -16,6 +16,7 @@ int main(void) {
             count++;
             const char* n_data = (char*)realloc(data, sizeof(char) * count);
             if (n_data) {
+                data = n_data;
                 data[count - 2] = step;
             } else {
                 free(data);
