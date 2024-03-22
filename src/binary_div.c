@@ -12,13 +12,19 @@ int main(void) {
         int step = getchar();
         if (step == 10) {
             break;
-        } else {
-            count++;
-            char* n_data = (char*)realloc(data, sizeof(char) * count);
+        }
+        if (count >= 1) {
+            char* n_data = (char*)realloc(data, (sizeof(char) * count)) + 1;
             if (n_data) {
                 data = n_data;
-                data[count - 2] = step;
-            } else {
+                data[count - 1] = step;
+                count++;
+            }
+            if (count == 1) {
+                data[count - 1] = step;
+            }
+
+            else {
                 free(data);
                 printf("Закончилась свободная память");
                 break;
