@@ -9,7 +9,7 @@ int main(void) {
 
     sqlite3_open("../data-samples/task007.db", &db);
 
-    char *sql = "SELECT * FROM Students WHERE id=7";
+    char *sql = "SELECT id, name, age, email FROM Students WHERE id=7";
 
     sqlite3_exec(db, sql, callback, 0, &err_msg);
 
