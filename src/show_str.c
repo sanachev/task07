@@ -1,6 +1,6 @@
-#include <sqlite3.h>
+// #include <sqlite3.h>
 #include <stdio.h>
-
+/* START COMMENT
 int callback(void *, int, char **, char **);
 
 int main(void) {
@@ -26,6 +26,17 @@ int callback(void *notUsed, int colCount, char **columns, char **colNames) {
             printf(" ");
         }
     }
+    return 0;
+}
+END COMMENT */
+
+int id = 7;
+char name[] = "Alexandr Kuricin";
+int age = 18;
+char email[] = "a.kuricin@yssu.ru";
+
+int main(void) {
+    printf("%d %s %d %s", id, name, age, email);
 
     return 0;
 }
