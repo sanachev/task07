@@ -5,6 +5,7 @@ int main(void) {
     int count = 1;
     char* data;
     data = (char*)malloc(sizeof(char) * count);
+    int length;
 
     // читаем строку
     while (1) {
@@ -23,25 +24,28 @@ int main(void) {
             }
         }
     }
+    // количство печатаемых символов в массиве
+    length = count - 1;
 
     // выводим исходную строку
-    for (int i = 0; i < count - 1; i++) {
+    for (int i = 0; i < length; i++) {
         printf("%c", data[i]);
     }
+    printf("\t %d", count);
     putchar('\n');
 
     // уменьшаем если строка больше 2х символов
-    while (count > 1) {
-        if ((count % 2) != 0) {
-            count = (count / 2) + 1;
+    while (length > 1) {
+        if ((length % 2) != 0) {
+            length = (length / 2) + 1;
         } else {
-            count /= 2;
+            length /= 2;
         }
 
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < length; i++) {
             printf("%c", data[i]);
         }
-        if (count > 1) {
+        if (length > 1) {
             putchar('\n');
         }
     }
